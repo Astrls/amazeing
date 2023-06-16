@@ -3,6 +3,13 @@ import { LEVEL_1, LEVEL_2, LEVEL_3 } from "./levels.js";
 document.body.style.padding = "0px";
 document.body.style.margin = "0px";
 document.body.style.boxSizing = "border-box";
+document.body.style.width = "100vw"
+document.body.style.height = "100vh"
+document.body.style.display = "flex"
+document.body.style.alignItems = "center"
+document.body.style.justifyContent = "center"
+document.body.style.backgroundColor = "#dbd9d9"
+
 
 let main = document.querySelector("main");
 
@@ -14,10 +21,10 @@ let createMazeContainer = (level) => {
   mazeContainer.style.backgroundImage = 'url("/assets/grass_pattern.jpg")';
   mazeContainer.style.backgroundSize = "cover";
   mazeContainer.style.display = "grid";
+  mazeContainer.style.maxWidth = `${level[0].length*55}px`
   mazeContainer.style.gridTemplateRows = `repeat(${level.length}, 1fr)`;
   mazeContainer.style.gridTemplateColumns = `repeat(${level[0].length}, 1fr)`;
 };
-
 
 let createLevel = (level) => {
   for (let i = 0; i < level.length; i++) {
