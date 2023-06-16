@@ -18,7 +18,7 @@ let createMazeContainer = (level) => {
   let mazeContainer = document.createElement("div");
   mazeContainer.className = "maze-container";
   main.append(mazeContainer);
-  mazeContainer.style.backgroundImage = 'url("/assets/grass_pattern.jpg")';
+  mazeContainer.style.backgroundImage = 'url("assets/grass_pattern.jpg")';
   mazeContainer.style.backgroundSize = "cover";
   mazeContainer.style.display = "grid";
   mazeContainer.style.maxWidth = `${level[0].length*55}px`
@@ -168,5 +168,5 @@ document.addEventListener("keyup", (e) => {
 });
 }
 
-letsGetMovin(`/index.html`)
+letsGetMovin(`index.html`)
 
