@@ -13,7 +13,7 @@ document.body.style.backgroundColor = "#dbd9d9"
 let main = document.querySelector("main");
 
 //Function to create Container
-let createMazeContainer = (level) => {
+const createMazeContainer = (level) => {
   let mazeContainer = document.createElement("div");
   mazeContainer.className = "maze-container";
   main.append(mazeContainer);
@@ -26,7 +26,7 @@ let createMazeContainer = (level) => {
 };
 
 
-let createLevel = (level) => {
+const createLevel = (level) => {
   for (let i = 0; i < level.length; i++) {
     level[i].forEach((elem) => {
       if (elem === "*") {

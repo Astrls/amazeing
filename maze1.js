@@ -1,5 +1,6 @@
 import { LEVEL_1, LEVEL_2, LEVEL_3 } from "./levels.js";
 
+export const styleBody = () => {
 document.body.style.padding = "0px";
 document.body.style.margin = "0px";
 document.body.style.boxSizing = "border-box";
@@ -9,11 +10,13 @@ document.body.style.display = "flex"
 document.body.style.alignItems = "center"
 document.body.style.justifyContent = "center"
 document.body.style.backgroundColor = "#dbd9d9"
+}
 
+styleBody();
 let main = document.querySelector("main");
 
 //Function to create Container
-export let createMazeContainer = (level) => {
+export const createMazeContainer = (level) => {
   let mazeContainer = document.createElement("div");
   mazeContainer.className = "maze-container";
   main.append(mazeContainer);
@@ -26,7 +29,7 @@ export let createMazeContainer = (level) => {
 };
 
 // Function to create level
-export let createLevel = (level) => {
+export const createLevel = (level) => {
   for (let i = 0; i < level.length; i++) {
     level[i].forEach((elem) => {
       if (elem === "*") {
@@ -84,7 +87,7 @@ export const getLinkPos = () => {
 };
 
 // moving through the maze
-export const letsGetMovin = (nextlevel) => {
+export const letsGetMovin = (level,nextlevel) => {
   document.addEventListener("keyup", (e) => {
     //Moving right
     if (e.key === "ArrowRight") {
@@ -124,7 +127,7 @@ export const letsGetMovin = (nextlevel) => {
     if (e.key === "ArrowDown") {
       let player = document.querySelector(".link");
       let nextPos = document.querySelector(
-        `.maze-container :nth-child(${getLinkPos() + 13})`
+        `.maze-container :nth-child(${getLinkPos() + level[0].length})`
       );
       console.log(nextPos);
       if (
@@ -145,7 +148,7 @@ export const letsGetMovin = (nextlevel) => {
     if (e.key === "ArrowUp") {
       let player = document.querySelector(".link");
       let nextPos = document.querySelector(
-        `.maze-container :nth-child(${getLinkPos() - 13})`
+        `.maze-container :nth-child(${getLinkPos() - level[0].length})`
       );
       console.log(nextPos);
       if (
@@ -171,4 +174,4 @@ export const letsGetMovin = (nextlevel) => {
   });
 };
 
-letsGetMovin(`maze2.html`);
+letsGetMovin(LEVEL_1,`maze2.html`);
